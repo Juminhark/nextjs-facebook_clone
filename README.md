@@ -167,3 +167,7 @@ export default NextAuth({
 ```
 
 - ServerSideProps 와 session에 대한 이해
+
+## reference
+
+- https://blog.logrocket.com/how-to-use-nextauth-js-for-client-side-authentication-in-next-js/
