@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Init
 
 ```sh
-> npx create-next-app nextjs-facebook-clone
+> npx create-next-app nextjs-facebook_clone
 ```
 
 ## Getting Started
