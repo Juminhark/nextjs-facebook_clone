@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Facebook Clone
 
-- https://www.youtube.com/watch?v=LYWgPSbPDfQ&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=4
-- https://www.youtube.com/watch?v=z5f_Fa9JaZY
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
 ## Init
+
+- [create-next-app](https://github.com/vercel/next.js/tree/canary/packages/create-next-app)
 
 ```sh
 > npx create-next-app nextjs-facebook_clone
 ```
 
-## Getting Started
+## Getting Started - nextjs
 
 ```bash
 npm run dev
 ```
 
-- Open [http://localhost:3000](http://localhost:3000)
-
-- You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- `pages/index.js`에 파일추가하면 자동 page 생성.
 
 - [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 - The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## [Learn More about Next.js](<(https://github.com/vercel/next.js/)>)
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-## Setting up Tailwind CSS
+## Setting up [Tailwind CSS](https://tailwindcss.com/)
 
 ```sh
 > npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
@@ -54,7 +49,6 @@ module.exports = {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 ```
 
 ## [Deploy on Vercel](<(https://nextjs.org/docs/deployment)>)
@@ -143,7 +137,7 @@ export default HeaderIcon;
 - [facebook for developer](https://developers.facebook.com/apps/)
 
 ```sh
-> yarn add next-auth
+> npm i next-auth
 ```
 
 ```js
@@ -154,16 +148,29 @@ import Providers from 'next-auth/providers';
 export default NextAuth({
 	// Configure one or more authentication providers
 	providers: [
-		Providers.GitHub({
-			clientId: process.env.GITHUB_ID,
-			clientSecret: process.env.GITHUB_SECRET,
+		Providers.Facebook({
+      clientId: process.env.FACEBOOK_CLIENT_ID,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET
 		}),
 		// ...add more providers here
 	],
-
-	// A database is optional, but required to persist accounts in a database
-	database: process.env.DATABASE_URL,
 });
+
+
+// _app.js
+import '../styles/globals.css';
+import { Provider } from 'next-auth/client'
+
+function MyApp({ Component, pageProps }) {
+	return (
+		<Provider session={pageProps.session}>
+			<Component {...pageProps} />
+		</Provider>
+	);
+}
+
+export default MyApp;
+
 ```
 
 - ServerSideProps 와 session에 대한 이해
@@ -171,3 +178,6 @@ export default NextAuth({
 ## reference
 
 - https://blog.logrocket.com/how-to-use-nextauth-js-for-client-side-authentication-in-next-js/
+
+- https://www.youtube.com/watch?v=LYWgPSbPDfQ&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=4
+- https://www.youtube.com/watch?v=z5f_Fa9JaZY
