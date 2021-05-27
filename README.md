@@ -177,13 +177,42 @@ export default MyApp;
 
 - ServerSideProps 와 session에 대한 이해
 
+## [firebase](https://firebase.google.com/?gclid=Cj0KCQjwhr2FBhDbARIsACjwLo1UAxrLCTucqVfJqHDQxYqIuY0p7FWSIk1168kdgy_OZQeSbn4U6hUaAk6xEALw_wcB&gclsrc=aw.ds)
+
+```sh
+> yarn add firebase
+```
+
+```js
+// firebase.js
+import firebase from 'firebase';
+import 'firebase/storage';
+
+const firebaseConfig = {
+	apiKey: '-',
+	authDomain: '-',
+	projectId: '-',
+	storageBucket: '-',
+	messagingSenderId: '-',
+	appId: '-',
+};
+
+const app = !firebase.apps.length
+	? firebase.initializeApp(firebaseConfig)
+	: firebase.app();
+
+const db = app.firestore();
+const storage = firebase.storage();
+
+export { db, storage };
+```
+
 ## error
 
 - 이상하게 css 적용이 안될때마다 globals.css 가서 다시 저장하면 적용됨
 
 ## reference
 
-- https://www.youtube.com/watch?v=dBotWYKYYWc
 - https://blog.logrocket.com/how-to-use-nextauth-js-for-client-side-authentication-in-next-js/
 - https://www.youtube.com/watch?v=LYWgPSbPDfQ&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=4
 - https://www.youtube.com/watch?v=z5f_Fa9JaZY
