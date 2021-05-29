@@ -245,6 +245,44 @@ function Posts() {
 export default Posts;
 ```
 
+## [tailwind-scrollbar-hide](https://www.npmjs.com/package/tailwind-scrollbar-hide)
+
+```sh
+> yarn add tailwind-scrollbar-hide
+```
+
+```js
+// tailwind.config.js
+module.exports = {
+	theme: {
+		// ...
+	},
+	plugins: [
+		require('tailwind-scrollbar-hide'),
+		// ...
+	],
+};
+
+// Feed.js
+import InputBox from './InputBox';
+import Posts from './Posts';
+import Stories from './Stories';
+
+function Feed() {
+	return (
+		<div className=" scrollbar-hide">
+			<div>
+				<Stories />
+				<InputBox />
+				<Posts />
+			</div>
+		</div>
+	);
+}
+
+export default Feed;
+```
+
 ## error
 
 - 이상하게 css 적용이 안될때마다 globals.css 가서 다시 저장하면 적용됨
