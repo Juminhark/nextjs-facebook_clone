@@ -3,9 +3,7 @@ module.exports = {
 		domains: [
 			'links.papareact.com',
 			'platform-lookaside.fbsbx.com',
-			'firiebasestorage.googleapis.com',
+			'firebasestorage.googleapis.com',
 		],
 	},
 };
-
-// https:///platform/profilepic/?

@@ -207,9 +207,68 @@ const storage = firebase.storage();
 export { db, storage };
 ```
 
+## file picker
+
+```js
+const filepickerRef = useRef(null);
+
+<div onClick={() => filepickerRef.current.click()}>
+	<CameraIcon />
+	<input ref={filepickerRef} onChange={addImageToPost} type="file" hidden />
+</div>;
+```
+
+## [react-firebase-hooks](https://www.npmjs.com/package/react-firebase-hooks)
+
+```sh
+> yarn add react-firebase-hooks
+```
+
+```js
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { db } from '../firebase';
+
+function Posts() {
+	const [realtimePosts, loading, error] = useCollection(
+		db.collection('posts').orderBy('timestamp', 'desc')
+	);
+
+	return (
+		<div>
+			{realtimePosts.docs.map((post) => {
+				<Post />;
+			})}
+		</div>
+	);
+}
+
+export default Posts;
+```
+
 ## error
 
 - 이상하게 css 적용이 안될때마다 globals.css 가서 다시 저장하면 적용됨
+
+- 자주 실수하는 상황
+
+```js
+<div>
+	{realtimePosts?.docs.map((post) => {  <-
+		<Post
+			key={post.id}
+		/>
+	})}
+</div>
+
+<div>
+	{realtimePosts?.docs.map((post) => ( <-
+		<Post
+			key={post.id}
+		/>
+	))}
+</div>
+
+```
 
 ## reference
 
