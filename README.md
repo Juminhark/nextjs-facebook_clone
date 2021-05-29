@@ -310,8 +310,5 @@ export default Feed;
 
 ## reference
 
+- https://www.youtube.com/watch?v=dBotWYKYYWc
 - https://blog.logrocket.com/how-to-use-nextauth-js-for-client-side-authentication-in-next-js/
-- https://www.youtube.com/watch?v=LYWgPSbPDfQ&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=4
-- https://www.youtube.com/watch?v=z5f_Fa9JaZY
-- https://www.youtube.com/watch?v=oq0B7XUNbtk
-- https://www.youtube.com/watch?v=LYWgPSbPDfQ&list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu&index=6
